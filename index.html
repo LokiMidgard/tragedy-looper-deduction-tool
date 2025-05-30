@@ -20,7 +20,7 @@
         const oldScripts = Array.from({ length: window.localStorage.length }).map((x, i) => window.localStorage.key(i))
             .filter(x => x.startsWith('scripts:'))
             .map(key => {
-                const value = window.localStorage.getItem(value);
+                const value = window.localStorage.getItem(key);
                 const name = key.substring('scripts:'.length);
                 return {
                     name,
