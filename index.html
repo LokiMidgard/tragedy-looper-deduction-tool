@@ -14,7 +14,7 @@
     }
     textarea{
         width: 100%;
-        height: 3rem;
+        height: 10rem;
     }
 </style>    
     
@@ -61,7 +61,7 @@
                 const text = document.createElement('textarea');
 
                 text.readOnly = true;
-                text.value = script.value;
+                text.value = JSON.stringify(JSON.parse(script.value),undefined, 2);
                 strong.innerText = script.name;
                 label.appendChild(strong);
                 label.appendChild(text);
