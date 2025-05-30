@@ -1,1 +1,49 @@
+<h1>
+    The Website has moved
+</h1>
 
+<p>
+    You find it under the new url:
+    <a href="https://tragedy-looper.github.io/">https://tragedy-looper.github.io/</a>.
+</p>
+
+<p>
+    If you had local scripts, they should be still in your browser
+</p>
+
+<div id="scripts">
+
+</div>
+
+<script>
+    function loadScripts() {
+        const oldScripts = Array.from({ window.localStorage.length }).map((x, i) => window.localStorage.key(i))
+            .filter(x => x.startsWith('scripts:'))
+            .map(key => {
+                const value = window.localStorage.getItem(value);
+                const name = key.substring('scripts:'.length);
+                return {
+                    name,
+                    value,
+                }
+            })
+            .filter(({ name, value }) => name && value);
+
+        const div = document.getElementById('scripts');
+
+        for (const script of oldScripts) {
+            const label = document.createElement('label');
+            const strong = document.createElement('strong');
+            const text = document.createElement('textarea');
+
+            text.setAttribute('readonly');
+            text.value = script.value;
+            strong.innerText = script.name;
+            label.appendChild(strong);
+            label.appendChild(text);
+            div.appendChild(label);
+        }
+    }
+    window.onload = loadScripts;
+
+</script>
