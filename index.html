@@ -36,7 +36,7 @@
             const strong = document.createElement('strong');
             const text = document.createElement('textarea');
 
-            text.setAttribute('readonly');
+            text.readOnly = true;
             text.value = script.value;
             strong.innerText = script.name;
             label.appendChild(strong);
